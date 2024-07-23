@@ -1,7 +1,7 @@
 package org.example.entities;
 
 public class MediaFile {
-    private int id;
+    private final int id;
     private String name;
     private String type;
     private int volume;
@@ -11,10 +11,6 @@ public class MediaFile {
         this.id = id;
         this.name = name;
         this.type = type;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 
     public void setName(String name) {
