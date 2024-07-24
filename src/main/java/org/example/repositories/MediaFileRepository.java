@@ -10,7 +10,7 @@ public class MediaFileRepository {
     private final List<MediaFile> mediaFiles;
 
     public MediaFileRepository(Database database){
-        this.mediaFiles = database.getPlaylist().get(0).getMediaFiles();
+        this.mediaFiles = database.getMediaFilesList();
     }
 
     public Optional<MediaFile> getMediaFileById(int id){

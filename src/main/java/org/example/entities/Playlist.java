@@ -45,13 +45,40 @@ public class Playlist {
         return mediaFiles.remove(mediaFile);
     }
     public boolean playMedia(int mediaFileId){
-        return true;
+        for (MediaFile mediaFile:mediaFiles){
+            if (mediaFile.getId()==mediaFileId){
+                mediaFile.play();
+                return true;
+            }
+        }
+        return false;
     }
     public boolean pauseMedia(int mediaFileId){
-        return true;
+        for(MediaFile mediaFile:mediaFiles){
+            if (mediaFile.getId()==mediaFileId){
+                mediaFile.pause();
+                return true;
+            }
+        }
+        return false;
     }
     public boolean stopMedia(int mediaFileId){
-        return true;
+        for (MediaFile mediaFile:mediaFiles){
+            if (mediaFile.getId()==mediaFileId){
+                mediaFile.stop();
+                return true;
+            }
+        }
+        return false;
+    }
+
+    @Override
+    public String toString(){
+        String combined = "\n{Playlist name: '" + name + "' id: " + id + "\n";
+        for (MediaFile mediaFile:mediaFiles){
+            combined += mediaFile.toString() + "\n";
+        }
+        return combined+"}\n";
     }
 
 }

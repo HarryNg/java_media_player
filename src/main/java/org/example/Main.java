@@ -2,8 +2,11 @@ package org.example;
 
 import org.example.database.Database;
 import org.example.entities.MediaFile;
+import org.example.entities.Playlist;
 import org.example.repositories.MediaFileRepository;
+import org.example.repositories.PlaylistRepository;
 import org.example.services.MediaFileService;
+import org.example.services.PlaylistService;
 
 import java.util.Optional;
 
@@ -12,8 +15,12 @@ public class Main {
         Database database = new Database();
         MediaFileRepository mediaFileRepository = new MediaFileRepository(database);
         MediaFileService mediaFileService = new MediaFileService(mediaFileRepository);
+        PlaylistRepository playlistRepository = new PlaylistRepository(database);
+        PlaylistService playlistService = new PlaylistService(playlistRepository);
+
         System.out.println("Get first media file name: " + mediaFileService.listMediaFiles().get(0).getName());
 
+        System.out.println("\n====================Test Media File==================================");
         // Test get media file by id 3333
         Optional<MediaFile> findByID = mediaFileService.getMediaFile(3333);
         if (findByID.isPresent()){
@@ -65,6 +72,17 @@ public class Main {
         mediaFileService.adjustVolume(3333,33);
         System.out.println("Adjusted volume: " + findByID.get().getVolume());
 
+        System.out.println("\n=====================Test Playlist=================================");
+        // Test create playlist
+        Playlist testPlaylist = new Playlist(777,"Symphony 77");
+        playlistService.createPlaylist(testPlaylist);
+        System.out.println(playlistService.listPlaylists().toString());
 
+        // Test Playlist id 321 is playing media file id 3333
+        playlistService.playMediaFromPlaylist(321,3333);
+        // Test Playlist id 321 is pausing media file id 3333
+        playlistService.pauseMediaInPlaylist(321,3333);
+        // Test Playlist id 321 is stopping media file id 3333
+        playlistService.stopMediaInPlaylist(321,3333);
     }
 }

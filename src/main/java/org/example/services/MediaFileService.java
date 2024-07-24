@@ -64,7 +64,6 @@ public class MediaFileService implements IMediaFileService {
         }else {
             return mediaFileRepository.removeMediaFile(deletedFile.get());
         }
-
     }
 
     @Override
@@ -86,6 +85,7 @@ public class MediaFileService implements IMediaFileService {
         return false;
     }
 
+    // TODOS after implementing audio and video entities
     @Override
     public boolean adjustBrightness(int id, int brightness) {
         return false;
