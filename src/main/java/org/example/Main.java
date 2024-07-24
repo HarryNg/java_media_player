@@ -60,6 +60,10 @@ public class Main {
         mediaFileService.pauseMedia(3333);
         // Test stop media file by id 3333
         mediaFileService.stopMedia(3333);
+        // Test adjust volume media file by id 3333
+        System.out.println("Current volume: " + findByID.get().getVolume());
+        mediaFileService.adjustVolume(3333,33);
+        System.out.println("Adjusted volume: " + findByID.get().getVolume());
 
 
     }

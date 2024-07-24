@@ -79,6 +79,10 @@ public class MediaFileService implements IMediaFileService {
 
     @Override
     public boolean adjustVolume(int id, int volume) {
+        Optional<MediaFile> file = mediaFileRepository.getMediaFileById(id);
+        if(file.isPresent()){
+            file.get().setVolume(volume);
+        }
         return false;
     }
 
