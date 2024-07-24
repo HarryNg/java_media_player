@@ -38,6 +38,9 @@ public class Playlist {
         return mediaFiles.add(mediaFile);
     }
     public boolean removeMediaFile(MediaFile mediaFile){
+        if(!mediaFiles.contains(mediaFile)){
+            return false;
+        }
         return mediaFiles.remove(mediaFile);
     }
     public boolean playMedia(int mediaFileId){
