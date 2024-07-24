@@ -42,15 +42,15 @@ public class MediaFile {
     }
 
     public boolean play(){
-        System.out.println(name + " Is playing!\n");
+        System.out.println("'" + name + "' Is playing!\n");
         return true;
     }
     public boolean stop(){
-        System.out.println(name + " Is stopped!\n");
+        System.out.println("'" + name + "' Is stopped!\n");
         return true;
     }
     public boolean pause(){
-        System.out.println(name + " Is paused!\n");
+        System.out.println("'" + name + "' Is paused!\n");
         return true;
     }
 

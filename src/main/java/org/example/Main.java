@@ -43,6 +43,20 @@ public class Main {
             }
         }
 
+        System.out.println("\n======================================================");
+        // Test play media file by id 3333
+        if(findByID.isPresent()){
+            findByID.get().play();
+        }
+        // Test pause media file by id 3333
+        if(findByID.isPresent()){
+            findByID.get().pause();
+        }
+        // Test stop media file by id 3333
+        if(findByID.isPresent()){
+            findByID.get().stop();
+        }
+
 
     }
 }

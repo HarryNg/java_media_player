@@ -26,16 +26,28 @@ public class MediaFileService implements IMediaFileService {
 
     @Override
     public boolean playMedia(int id) {
+        Optional<MediaFile> fileToPlay = mediaFileRepository.getMediaFileById(id);
+        if(fileToPlay.isPresent()){
+            return fileToPlay.get().play();
+        }
         return false;
     }
 
     @Override
     public boolean pauseMedia(int id) {
+        Optional<MediaFile> fileToPause = mediaFileRepository.getMediaFileById(id);
+        if(fileToPause.isPresent()){
+            return fileToPause.get().pause();
+        }
         return false;
     }
 
     @Override
     public boolean stopMedia(int id) {
+        Optional<MediaFile> fileToStop = mediaFileRepository.getMediaFileById(id);
+        if(fileToStop.isPresent()){
+            return fileToStop.get().stop();
+        }
         return false;
     }
 
