@@ -1,8 +1,6 @@
 package org.example.database;
 
-import org.example.entities.MediaFile;
-import org.example.entities.Playlist;
-import org.example.entities.User;
+import org.example.entities.*;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -15,11 +13,11 @@ public class Database {
 
     public Database() {
         this.mediaFiles = new ArrayList<>(Arrays.asList(
-                new MediaFile(3333,"Happy new year","Audio"),
-                new MediaFile(1122,"Rhythm of the rain","Audio"),
-                new MediaFile(2345,"Avenger 2","Video"),
-                new MediaFile(4846,"Ice Age","Video"),
-                new MediaFile(6666,"Star war","Video")
+                new AudioFile(3333,"Happy new year","Audio"),
+                new AudioFile(1122,"Rhythm of the rain","Audio"),
+                new VideoFile(2345,"Avenger 2","Video"),
+                new VideoFile(4846,"Ice Age","Video"),
+                new VideoFile(6666,"Star war","Video")
         ));
         this.playlists = new ArrayList<>(Arrays.asList(
                 new Playlist(321, "RockMetal"),

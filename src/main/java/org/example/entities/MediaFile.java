@@ -5,7 +5,6 @@ public class MediaFile {
     private String name;
     private String type;
     private int volume;
-    private int setting;
 
     public MediaFile(int id, String name, String type){
         this.id = id;
@@ -33,10 +32,6 @@ public class MediaFile {
         return type;
     }
 
-    public void setVolume(int volume) {
-        this.volume = volume;
-    }
-
     public int getVolume() {
         return volume;
     }
@@ -53,7 +48,9 @@ public class MediaFile {
         System.out.println("'" + name + "' Is paused!\n");
         return true;
     }
-
+    public void adjustVolume(int volume){
+        this.volume = volume;
+    }
     public boolean adjustSetting(String setting, int value){
         System.out.println(setting + " This setting value: " + value);
         return true;

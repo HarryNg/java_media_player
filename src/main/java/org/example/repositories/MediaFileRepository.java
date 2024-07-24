@@ -31,7 +31,7 @@ public class MediaFileRepository {
             if(mediaFile1.getId()==mediaFile.getId()){
                 mediaFile1.setName(mediaFile.getName());
                 mediaFile1.setType(mediaFile.getType());
-                mediaFile1.setVolume(mediaFile.getVolume());
+                mediaFile1.adjustVolume(mediaFile.getVolume());
                 return true;
             }
         }

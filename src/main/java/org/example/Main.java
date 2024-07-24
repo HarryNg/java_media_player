@@ -3,6 +3,7 @@ package org.example;
 import org.example.database.Database;
 import org.example.entities.MediaFile;
 import org.example.entities.Playlist;
+import org.example.entities.VideoFile;
 import org.example.repositories.MediaFileRepository;
 import org.example.repositories.PlaylistRepository;
 import org.example.services.MediaFileService;
@@ -31,7 +32,7 @@ public class Main {
         }
 
         // Test adding media file 2424
-        MediaFile movie = new MediaFile(2424, "Tom and Jerry", "video");
+        VideoFile movie = new VideoFile(2424, "Tom and Jerry", "video");
         if(mediaFileService.addMediaFile(movie)){
             Optional<MediaFile> added =  mediaFileService.getMediaFile(2424);
             added.ifPresentOrElse(
@@ -41,7 +42,7 @@ public class Main {
         }
 
         // Test updating media file 2424
-        MediaFile movieUpdated = new MediaFile(2424, "Tom and Batman", "video");
+        VideoFile movieUpdated = new VideoFile(2424, "Tom and Batman", "video");
         if(mediaFileService.updateMediaFile(movieUpdated)){
             Optional<MediaFile> updated = mediaFileService.getMediaFile(2424);
             updated.ifPresentOrElse(

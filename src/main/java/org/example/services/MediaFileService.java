@@ -80,19 +80,26 @@ public class MediaFileService implements IMediaFileService {
     public boolean adjustVolume(int id, int volume) {
         Optional<MediaFile> file = mediaFileRepository.getMediaFileById(id);
         if(file.isPresent()){
-            file.get().setVolume(volume);
+            file.get().adjustVolume(volume);
         }
         return false;
     }
 
-    // TODOS after implementing audio and video entities
     @Override
     public boolean adjustBrightness(int id, int brightness) {
+        Optional<MediaFile> file = mediaFileRepository.getMediaFileById(id);
+        if(file.isPresent()){
+            return file.get().adjustSetting("brightness",234);
+        }
         return false;
     }
 
     @Override
     public boolean changeSoundEffect(int id, String effect) {
+        Optional<MediaFile> file = mediaFileRepository.getMediaFileById(id);
+        if(file.isPresent()){
+            return file.get().adjustSetting("soundeffect",55);
+        }
         return false;
     }
 }
