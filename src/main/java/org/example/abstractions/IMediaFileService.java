@@ -7,7 +7,7 @@ import java.util.Optional;
 
 public interface IMediaFileService {
     public boolean addMediaFile(MediaFile mediaFile);
-    public boolean deleteMediaFile(MediaFile mediaFile);
+    public boolean deleteMediaFile(int id);
     public boolean updateMediaFile(MediaFile mediaFile);
     public Optional<MediaFile> getMediaFile(int id);
     public List<MediaFile> listMediaFiles();

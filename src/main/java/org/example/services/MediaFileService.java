@@ -45,8 +45,14 @@ public class MediaFileService implements IMediaFileService {
     }
 
     @Override
-    public boolean deleteMediaFile(MediaFile mediaFile) {
-        return mediaFileRepository.removeMediaFile(mediaFile);
+    public boolean deleteMediaFile(int id) {
+        Optional<MediaFile> deletedFile = mediaFileRepository.getMediaFileById(id);
+        if(deletedFile.isEmpty()){
+            return false;
+        }else {
+            return mediaFileRepository.removeMediaFile(deletedFile.get());
+        }
+
     }
 
     @Override

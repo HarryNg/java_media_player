@@ -34,7 +34,7 @@ public class Main {
         }
 
         // Test deleting media file 2424
-        if(mediaFileService.deleteMediaFile(movie)){
+        if(mediaFileService.deleteMediaFile(2424)){
             Optional<MediaFile> deleted = mediaFileService.getMediaFile(2424);
             if(deleted.isEmpty()){
                 System.out.println("Successfully deleted file with id 2424 ");

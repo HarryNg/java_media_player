@@ -32,8 +32,5 @@ public class Database {
         }
         throw new IndexOutOfBoundsException("No playlists available for the first user");
     }
-    public MediaFile getMediaFile(){
-        return users.get(0).getPlaylists().get(0).getMediaFiles().get(0);
-    }
 
 }
