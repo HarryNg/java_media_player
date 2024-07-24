@@ -33,6 +33,16 @@ public class Main {
             );
         }
 
+        // Test updating media file 2424
+        MediaFile movieUpdated = new MediaFile(2424, "Tom and Batman", "video");
+        if(mediaFileService.updateMediaFile(movieUpdated)){
+            Optional<MediaFile> updated = mediaFileService.getMediaFile(2424);
+            updated.ifPresentOrElse(
+                    file -> System.out.println("Successfully updated file: " + updated.toString()),
+                    () -> System.out.println("Failed to update file")
+            );
+        }
+
         // Test deleting media file 2424
         if(mediaFileService.deleteMediaFile(2424)){
             Optional<MediaFile> deleted = mediaFileService.getMediaFile(2424);

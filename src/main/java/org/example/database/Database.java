@@ -10,6 +10,7 @@ import java.util.List;
 
 public class Database {
     private List<User> users;
+    private List<Playlist> playlists;
 
     public Database() {
         this.users = new ArrayList<User>(Arrays.asList(
@@ -17,20 +18,16 @@ public class Database {
                 new User(456,"David", "password22"),
                 new User(789,"Tony", "password3333")
         ));
+
         // Initialize some sample data FOR TESTING
         users.get(0).addPlaylist(new Playlist(123,"Album 001"));
         users.get(0).getPlaylists().get(0).addMediaFile(new MediaFile(3333,"Happy new year","Audio"));
+
+        this.playlists = users.get(0).getPlaylists();
     }
 
-    public Playlist getPlaylist() {
-        if (users != null && !users.isEmpty()) {
-            User firstUser = users.get(0);
-            List<Playlist> playlists = firstUser.getPlaylists();
-            if (playlists != null && !playlists.isEmpty()) {
-                return playlists.get(0);
-            }
-        }
-        throw new IndexOutOfBoundsException("No playlists available for the first user");
+    public List<Playlist> getPlaylist() {
+        return playlists;
     }
 
 }

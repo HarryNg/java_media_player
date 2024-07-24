@@ -10,7 +10,7 @@ public class MediaFileRepository {
     private final List<MediaFile> mediaFiles;
 
     public MediaFileRepository(Database database){
-        this.mediaFiles = database.getPlaylist().getMediaFiles();
+        this.mediaFiles = database.getPlaylist().get(0).getMediaFiles();
     }
 
     public Optional<MediaFile> getMediaFileById(int id){
@@ -26,7 +26,17 @@ public class MediaFileRepository {
     public boolean addMediaFile(MediaFile mediaFile){
         return mediaFiles.add(mediaFile);
     }
-
+    public boolean updateMediaFile(MediaFile mediaFile){
+        for (MediaFile mediaFile1:mediaFiles){
+            if(mediaFile1.getId()==mediaFile.getId()){
+                mediaFile1.setName(mediaFile.getName());
+                mediaFile1.setType(mediaFile.getType());
+                mediaFile1.setVolume(mediaFile.getVolume());
+                return true;
+            }
+        }
+        return false;
+    }
 
 
 }

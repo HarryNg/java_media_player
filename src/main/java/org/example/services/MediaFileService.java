@@ -69,7 +69,12 @@ public class MediaFileService implements IMediaFileService {
 
     @Override
     public boolean updateMediaFile(MediaFile mediaFile) {
-        return false;
+        Optional<MediaFile> updateFile = mediaFileRepository.getMediaFileById(mediaFile.getId());
+        if(updateFile.isPresent()){
+            return mediaFileRepository.updateMediaFile(mediaFile);
+        }else {
+            return false;
+        }
     }
 
     @Override
