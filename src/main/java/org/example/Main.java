@@ -45,17 +45,11 @@ public class Main {
 
         System.out.println("\n======================================================");
         // Test play media file by id 3333
-        if(findByID.isPresent()){
-            findByID.get().play();
-        }
+        mediaFileService.playMedia(3333);
         // Test pause media file by id 3333
-        if(findByID.isPresent()){
-            findByID.get().pause();
-        }
+        mediaFileService.pauseMedia(3333);
         // Test stop media file by id 3333
-        if(findByID.isPresent()){
-            findByID.get().stop();
-        }
+        mediaFileService.stopMedia(3333);
 
 
     }

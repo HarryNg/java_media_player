@@ -27,9 +27,6 @@ public class MediaFileRepository {
         return mediaFiles.add(mediaFile);
     }
 
-    // TODOS:
-//    public boolean updateMediaFile(MediaFile mediaFile){
-//        return database.updateMedia(mediaFile);
-//    }
+
 
 }
