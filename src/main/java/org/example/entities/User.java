@@ -1,5 +1,6 @@
 package org.example.entities;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class User {
@@ -8,19 +9,15 @@ public class User {
     private String password;
     private List<Playlist> playlists;
 
-    public User(int id, String username, String password, List<Playlist> playlists) {
+    public User(int id, String username, String password) {
         this.id = id;
         this.username = username;
         this.password = password;
-        this.playlists = playlists;
+        this.playlists = new ArrayList<>();
     }
 
     public int getId() {
         return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 
     public String getUsername() {
