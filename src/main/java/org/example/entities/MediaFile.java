@@ -58,4 +58,9 @@ public class MediaFile {
         System.out.println(setting + " This setting value: " + value);
         return true;
     }
+
+    @Override
+    public String toString(){
+        return "{File id: " + id + ", Name: '" + name + "', Type: '" + type +"'}";
+    }
 }

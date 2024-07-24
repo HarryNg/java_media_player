@@ -41,12 +41,12 @@ public class MediaFileService implements IMediaFileService {
 
     @Override
     public boolean addMediaFile(MediaFile mediaFile) {
-        return false;
+        return mediaFileRepository.addMediaFile(mediaFile);
     }
 
     @Override
-    public boolean deleteMediaFile(int id) {
-        return false;
+    public boolean deleteMediaFile(MediaFile mediaFile) {
+        return mediaFileRepository.removeMediaFile(mediaFile);
     }
 
     @Override

@@ -20,15 +20,14 @@ public class MediaFileRepository {
         return mediaFiles;
     }
 
+    public boolean removeMediaFile(MediaFile mediaFile){
+        return mediaFiles.remove(mediaFile);
+    }
+    public boolean addMediaFile(MediaFile mediaFile){
+        return mediaFiles.add(mediaFile);
+    }
 
-    // TODOS: addMediaFile(MediaFile mediaFile), removeMediaFile(MediaFile mediaFile),
-    // updateMediaFile(MediaFile mediaFile)
-//    public boolean addMediaFile(MediaFile mediaFile){
-//        return database.addMedia(mediaFile);
-//    }
-//    public boolean removeMediaFile(MediaFile mediaFile){
-//        return database.removeMedia(mediaFile);
-//    }
+    // TODOS:
 //    public boolean updateMediaFile(MediaFile mediaFile){
 //        return database.updateMedia(mediaFile);
 //    }
