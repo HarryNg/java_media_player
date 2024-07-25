@@ -1,7 +1,9 @@
 package org.example.entities;
 
+import javax.swing.text.html.Option;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 public class Playlist {
     private int id;
@@ -44,32 +46,25 @@ public class Playlist {
         }
         return mediaFiles.remove(mediaFile);
     }
+    private Optional<MediaFile> getMediaFileById(int id){
+        return mediaFiles.stream()
+                .filter(mediaFile -> mediaFile.getId()==id)
+                .findFirst();
+    }
     public boolean playMedia(int mediaFileId){
-        for (MediaFile mediaFile:mediaFiles){
-            if (mediaFile.getId()==mediaFileId){
-                mediaFile.play();
-                return true;
-            }
-        }
-        return false;
+        Optional<MediaFile> mediaFileOptional = getMediaFileById(mediaFileId);
+        mediaFileOptional.ifPresent(MediaFile::play);
+        return mediaFileOptional.isPresent();
     }
     public boolean pauseMedia(int mediaFileId){
-        for(MediaFile mediaFile:mediaFiles){
-            if (mediaFile.getId()==mediaFileId){
-                mediaFile.pause();
-                return true;
-            }
-        }
-        return false;
+        Optional<MediaFile> mediaFileOptional = getMediaFileById(mediaFileId);
+        mediaFileOptional.ifPresent(MediaFile::pause);
+        return mediaFileOptional.isPresent();
     }
     public boolean stopMedia(int mediaFileId){
-        for (MediaFile mediaFile:mediaFiles){
-            if (mediaFile.getId()==mediaFileId){
-                mediaFile.stop();
-                return true;
-            }
-        }
-        return false;
+        Optional<MediaFile> mediaFileOptional = getMediaFileById(mediaFileId);
+        mediaFileOptional.ifPresent(MediaFile::stop);
+        return mediaFileOptional.isPresent();
     }
 
     @Override
