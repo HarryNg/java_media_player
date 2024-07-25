@@ -27,15 +27,15 @@ public class MediaFileRepository {
         return mediaFiles.add(mediaFile);
     }
     public boolean updateMediaFile(MediaFile mediaFile){
-        for (MediaFile mediaFile1:mediaFiles){
-            if(mediaFile1.getId()==mediaFile.getId()){
-                mediaFile1.setName(mediaFile.getName());
-                mediaFile1.setType(mediaFile.getType());
-                mediaFile1.adjustVolume(mediaFile.getVolume());
-                return true;
-            }
-        }
-        return false;
+        Optional<MediaFile> mediaFileOptional = mediaFiles.stream()
+                .filter(mediaFile1 -> mediaFile1.getId() == mediaFile.getId())
+                .findFirst();
+        if(mediaFileOptional.isPresent()){
+            mediaFileOptional.get().setName(mediaFile.getName());
+            mediaFileOptional.get().setType(mediaFile.getType());
+            mediaFileOptional.get().adjustVolume(mediaFile.getVolume());
+        };
+        return mediaFileOptional.isPresent();
     }
 
 

@@ -1,6 +1,5 @@
 package org.example.entities;
 
-import javax.swing.text.html.Option;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
