@@ -24,7 +24,31 @@ public class ConsoleUI {
     }
 
     public void start(){
-        User current = authenticate();
+        welcome();
+    }
+    private void welcome() {
+        while (true) {
+            System.out.println("To signup press (1)");
+            System.out.println("To signin press (2)");
+            System.out.println("To exit press (3)");
+            int choice = scanner.nextInt();
+            scanner.nextLine();
+            switch (choice) {
+                case 1:
+                    createUser();
+                    break;
+                case 2:
+                    User currentUser = authenticate();
+                    if (currentUser != null) {
+                        mainMenu(currentUser);
+                    }
+                    break;
+                default:
+                    System.exit(0);
+            }
+        }
+    }
+    private void mainMenu(User currentUser) {
         while (true) {
             System.out.println("\nMenu:");
             System.out.println("1. Manage Users");
@@ -33,11 +57,11 @@ public class ConsoleUI {
             System.out.println("4. Exit");
             System.out.print("Choose an option: ");
             int choice = scanner.nextInt();
-            scanner.nextLine();
+            scanner.nextLine(); // consume newline
 
             switch (choice) {
                 case 1:
-                    if (current.getRole() == UserRoles.ADMIN) {
+                    if (currentUser.getRole() == UserRoles.ADMIN) {
                         manageUsers();
                     } else {
                         System.out.println("Access denied: Only admins can manage users.");
@@ -56,10 +80,9 @@ public class ConsoleUI {
                     System.out.println("Invalid choice. Try again.");
             }
         }
-
     }
-
     private User authenticate(){
+
         System.out.println("Enter username: ");
         String username= scanner.nextLine();
         System.out.println("Enter password: ");
