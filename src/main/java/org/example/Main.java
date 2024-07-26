@@ -1,5 +1,6 @@
 package org.example;
 
+import org.example.UI.ConsoleUI;
 import org.example.database.Database;
 import org.example.entities.MediaFile;
 import org.example.entities.Playlist;
@@ -93,5 +94,7 @@ public class Main {
         System.out.println("\n=====================Test User=================================");
         System.out.println(userService.listUsers());
 
+        ConsoleUI consoleUI = new ConsoleUI(userService,playlistService,mediaFileService);
+        consoleUI.start();
     }
 }
