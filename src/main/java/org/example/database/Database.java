@@ -33,11 +33,14 @@ public class Database {
             playlists.get(1).addMediaFile(mediaFiles.get(i));
         }
 
-        this.users = new ArrayList<>(Arrays.asList(
-                new User(19, "John", "password1", UserRoles.ADMIN),
+        this.users = new ArrayList<User>(Arrays.asList(
+                new Admin(19, "John", "password1", UserRoles.ADMIN),
                 new User(56,"David", "password22", UserRoles.USER),
                 new User(72,"Tony", "password3333", UserRoles.USER)
         ));
+        users.get(0).addPlaylist(playlists.get(0));
+        users.get(1).addPlaylist(playlists.get(1));
+
 
     }
     public List<User> getUsers(){return users;}

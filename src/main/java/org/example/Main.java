@@ -3,11 +3,14 @@ package org.example;
 import org.example.database.Database;
 import org.example.entities.MediaFile;
 import org.example.entities.Playlist;
+import org.example.entities.User;
 import org.example.entities.VideoFile;
 import org.example.repositories.MediaFileRepository;
 import org.example.repositories.PlaylistRepository;
+import org.example.repositories.UserRepository;
 import org.example.services.MediaFileService;
 import org.example.services.PlaylistService;
+import org.example.services.UserService;
 
 import java.util.Optional;
 
@@ -18,6 +21,8 @@ public class Main {
         MediaFileService mediaFileService = new MediaFileService(mediaFileRepository);
         PlaylistRepository playlistRepository = new PlaylistRepository(database);
         PlaylistService playlistService = new PlaylistService(playlistRepository);
+        UserRepository userRepository = new UserRepository(database);
+        UserService userService = new UserService(userRepository);
 
         System.out.println("Get first media file name: " + mediaFileService.listMediaFiles().get(0).getName());
 
@@ -85,5 +90,8 @@ public class Main {
         playlistService.pauseMediaInPlaylist(321,3333);
         // Test Playlist id 321 is stopping media file id 3333
         playlistService.stopMediaInPlaylist(321,3333);
+        System.out.println("\n=====================Test User=================================");
+        System.out.println(userService.listUsers());
+
     }
 }

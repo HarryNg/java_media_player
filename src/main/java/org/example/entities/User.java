@@ -58,4 +58,9 @@ public class User {
     public boolean removePlaylist(Playlist playlist){
         return playlists.remove(playlist);
     }
+
+    @Override
+    public String toString(){
+        return "{Username: " +username+ ", Role: "+role+ ", Playlist: "+playlists+" }\n";
+    }
 }

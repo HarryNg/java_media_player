@@ -5,35 +5,37 @@ import org.example.entities.User;
 import org.example.repositories.UserRepository;
 
 import java.util.List;
+import java.util.Optional;
 
 public class UserService implements IUserService {
-    private final List<User> users;
+    private final UserRepository userRepository;
     public UserService(UserRepository userRepository) {
-        this.users = userRepository.getAllUsers();
+        this.userRepository = userRepository;
     }
 
     @Override
     public boolean createUser(User user) {
-        return false;
+        return userRepository.addUser(user);
     }
 
     @Override
     public boolean deleteUser(int id) {
-        return false;
+        return userRepository.removeUser(getUser(id).get());
     }
 
     @Override
     public boolean updateUser(User user) {
-        return false;
+        return userRepository.updateUser(user);
     }
 
     @Override
-    public User getUser(int id) {
-        return null;
+    public Optional<User> getUser(int id) {
+        return userRepository.getUserById(id);
     }
 
     @Override
     public List<User> listUsers() {
-        return null;
+        return userRepository.getAllUsers();
     }
+
 }
