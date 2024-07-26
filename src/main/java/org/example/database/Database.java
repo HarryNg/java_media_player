@@ -1,6 +1,7 @@
 package org.example.database;
 
 import org.example.entities.*;
+import org.example.enums.UserRoles;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -33,13 +34,13 @@ public class Database {
         }
 
         this.users = new ArrayList<>(Arrays.asList(
-                new User(19, "John", "password1"),
-                new User(56,"David", "password22"),
-                new User(72,"Tony", "password3333")
+                new User(19, "John", "password1", UserRoles.ADMIN),
+                new User(56,"David", "password22", UserRoles.USER),
+                new User(72,"Tony", "password3333", UserRoles.USER)
         ));
 
     }
-
+    public List<User> getUsers(){return users;}
     public List<Playlist> getPlaylist() {
         return playlists;
     }
